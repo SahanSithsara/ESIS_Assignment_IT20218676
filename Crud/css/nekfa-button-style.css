@@ -1,0 +1,26 @@
+﻿body {
+}
+.n-btn-success {
+    color: #fff;
+  background-color: #1c84c6;
+  border-color: #1c84c6;
+}
+.n-btn-reset {
+    color: #fff;
+    background-color: #848484 !important;
+    border-color: #848484 !important;
+}
+.n-btn-delete {
+     color: #fff;
+  background-color: #ed5565;
+  border-color: #ed5565;
+}
+.n-btn-add-search-success {
+   background-color: #1ab394;
+  color: #FFFFFF;
+}
+.n-btn-viewRpt-update {
+       color: #fff;
+  background-color: #1c84c6;
+  border-color: #1c84c6;
+}

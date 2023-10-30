@@ -1,0 +1,886 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteNewMaster.master.cs" Inherits="Crud.SiteNewMaster" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-- <title>HRM</title>--%>
+    <%--<link rel="stylesheet" href="~/css/bootstrap.min.css" />--%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="../../Scripts/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/nekfa-button-style.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrapValidator.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/plugins/Select2/Select2.css" />
+
+    <%--  //////////////////////////////////New Update////////////////////////////////////////////--%>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AZHRM | Dashboard</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <!-- Gritter -->
+    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/ChangePasswardStyles.css" rel="stylesheet" />
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />   
+
+    <%--  <div class="container">--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <%--  </div>--%>
+
+    <style>
+        /*remove background in setting button*/
+        .btn-default 
+        {
+            background: transparent;
+            border: transparent;
+        }
+    </style>
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="profile-element">
+
+                            <a href="../../HRMHome.aspx">
+                                <img alt="image" id="imgCompnyLogo" runat="server" style="width:100px;height:100px" />
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            <img alt="image" class="rounded-circle" style="width: 80px" src="../../img/logo_nekfa.png" />
+                        </div>
+                    </li>
+                  <%--  <li class="" id="DashbordMgt">
+                        <a href="index.html"><i class="fa fa-th-large"></i><span class="nav-label">Dashboards</span></a>
+                    </li>--%>
+
+                 
+
+                    <li class="" id="PayrollMgt">
+                        <a href="#" id="aPayroll"><i class="fa fa-credit-card"></i><span class="nav-label">Payroll</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse" id="ulPayroll">
+
+                            <%--2023/Mar/07--%>
+                            <%--<li><a href="../../View/Payroll/PayrollHome.aspx">Home</a></li>--%>
+                            <li><a href="../../View/Payroll/PayrollModuleMap.aspx">Home</a></li>
+
+                            <li><a href="../../View/Payroll/AddDeduction.aspx">Add Deduction</a></li>
+                            <li><a href="../../View/Payroll/AddAllowance.aspx">Add Allowance</a></li>
+                            <li><a href="../../View/Payroll/SalaryProcess.aspx">Salary Process</a></li>
+                            <li><a href="../../View/Payroll/SalaryDetails.aspx">Salary Details</a></li>
+                            <li><a href="../../View/Payroll/SearchSalaryProcess.aspx">Salary Process Details</a></li>
+                            <li>
+                                <a href="#" id="">Reports <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Report1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Report2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+
+                      
+                    <li class="" id="AdminMgt">
+                        <a href="#" aria-expanded="true" id="aAdmin"><i class="fa fa-user"></i><span class="nav-label">Admin</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse" id="ulAdmin">
+                            <li><a href="../../View/Admin/AdminHome.aspx">Home</a></li>
+                            <li><a href="../../View/Admin/UserRoleMgt.aspx">User Role</a></li>
+                            <li><a href="../../View/Admin/UserMgt">System Users</a></li>
+                            
+                            <li>
+                                <a href="#" id="">System Settings <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="../../View/Admin/Language.aspx">Language</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../View/Admin/SkillType.aspx">Skills</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../View/Admin/EducationalLevel.aspx">Educational Level</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../View/Admin/EducationSubLevel.aspx">Educational Sub Level</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../SystemConfiguration/AddTOSReason.aspx">TOS Reason</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../SystemConfiguration/JobType.aspx">Job Type</a>
+                                    </li>
+                                    <li>
+                                           <a href="../../View/Admin/LeaveTypeMgt.aspx">Leave Type</a>
+                                    </li>
+                                    <li>
+                                        <%--2022/Dec/22 - Allowance Type--%>
+                                        <%--<a href="../../SystemConfiguration/AllowanceType.aspx">Allowance Type</a>--%>
+                                        <a href="../../View/Admin/AllowanceType.aspx">Allowance Type</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../View/Admin/DeductionType.aspx">Deduction Type</a>
+                                       <%-- <a href="../../SystemConfiguration/DeductionTyeManager.aspx">Deduction Type</a>--%>
+                                    </li>
+                                     <li>
+                                        <a href="../../SystemConfiguration/TaxManagement.aspx">Tax Type</a>
+                                       
+                                    </li>
+
+
+
+                                     <%--2023/Feb/14 - For Check BA / QA--%>
+                                   
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0px; margin-top: 0px; padding-top: 0px !important;">
+                    <div class="navbar-header navbar-left">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                        <span runat="server" id="lblCompanyName" class="block" style="min-width: 500px !important; width: 500px !important; padding-top: 12px !important; font-size: 20px;"></span>
+                    </div>
+
+
+                    <%--<div>  <asp:Label ID="lblCompanyName" runat="server" Text="sfsdf" Width="500px"  Visible="true"></asp:Label></div>--%>
+                    <ul class="nav navbar-top-links navbar-right ">
+                        <li class="dropdown">
+                           <%-- <a class="dropdown-toggle count-info" href="#">
+                                <i class="fa fa-envelope"></i><span class="label label-warning">16</span>
+                            </a>--%>
+                        </li>
+                        <li>
+                            <%--<a class="dropdown-toggle count-info" href="#">
+                                <i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                            </a>--%>
+                        </li>
+
+
+
+
+
+
+
+
+
+                        
+
+                        <li style="height: 30px;">
+                            <a href="../../HRMHome.aspx">
+                                <img alt="image" style="padding-bottom: 10px; height: 35px;" src="../../images/dash_homepageicon.png" />
+                            </a>
+                        </li>
+                        
+
+                       <%-- add new setting img -2023/01/17--%>
+                        <li>
+                            <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="imgsettings" data-toggle="dropdown" style="padding-bottom:15px;">
+                                <img src="../../images/ImgSettingNav.png" style="height:30px;width:30px" />
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="imgsettings">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../../GeneralSettings.aspx">General Settings</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Custermizations</a></li>
+                            </ul>
+                        </div>
+                        </li>
+                        
+
+
+
+
+
+
+                   
+
+
+                        <li style="height: 30px;">
+                            <img alt="image" style="padding-bottom: 10px; height: 35px;" src="../../img/user3.png" />
+                        </li>
+                        
+                       
+                        <li>
+                            <a class="right-sidebar-toggle" href="#" id="linkUser">
+                                <span class="block m-t-xs font-bold" runat="server" id="lblUser"></span>
+                              
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs" id="userDiv">
+                                <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModalPassword">Change Password</a></li>
+                                <li class="dropdown-divider"></li>
+                               <li><a class="dropdown-item"  runat="server"  href = "~/HRMLogin.aspx" >Logout</a></li>
+                              <%-- HRMLogin.aspx--%>
+                            </ul>
+                           
+                        </li>
+
+                    </ul>
+                  
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="form1" runat="server">
+
+
+                        <asp:ScriptManager runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel runat="server">
+                            <ContentTemplate>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </form>
+                </div>
+              <%--  change footer1/16/2-23--%>
+                <div class="footer">
+                    AZHRM version 23.1.1  
+                    <br />
+                    © 2023  <a href="octa" target="_blank">Octa Softwares</a>  , Inc. All rights reserved.
+           
+                </div>
+
+        <div class="modal inmodal" id="myModalPassword" role="dialog">
+         
+            <div class="modal-dialog">
+          
+                
+              
+              
+                        <!-- Modal content-->
+                        <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title">Change my password</h2>
+                    </div>
+                    <div class="modal-body">
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label">Current password</label>
+                            <div class="input-group">
+                                <input type="password" runat="server" class="form-control" id="txtPassword" />
+                                <span class="input-group-addon"><i id="togglePassword1" class="far fa-eye-slash"></i></span>
+                            </div>
+                            <%-- <div class="col-lg-2">
+                                   <button id="btnImg" type="button" runat="server" class="btn info" onclick="btnImgClick();">
+                                       <span id="spnPwdVisible" runat="server" class="far fa-eye-slash"  ></span>
+                                   </button> 
+                               
+                     </div>--%>
+                        </div>
+                
+
+
+
+                        <div class="form-group">
+                            <label class="control-label">New password</label>
+
+                            <div class="input-group">
+                                <input type="password" runat="server" class="form-control" id="txtNewPwd" />
+                                <span class="input-group-addon"><i id="togglePassword2" class="far fa-eye-slash"></i></span>
+                            </div>
+                            <%--<div class="col-lg-2">
+                                   <button id="btnImg2" type="button" runat="server" class="btn info" onclick="btnImgClick2();">
+                                       <span id="spnPwdVisible2" runat="server" class="far fa-eye-slash"  ></span>
+                                   </button>   
+                       </div>--%>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label">Retype new password</label>
+
+                            <div class="input-group">
+                                <input type="password" runat="server" class="form-control" id="txtConfirmPswd" disabled="disabled" />
+                                <span class="input-group-addon"><i id="togglePassword3" class="far fa-eye-slash"></i></span>
+                            </div>
+
+                            <%--<div class="col-lg-2">
+                                      <button id="btnImg3" type="button" runat="server" class="btn info" onclick="btnImgClick3();">
+                                          <span id="spnPwdVisible3" runat="server" class="far fa-eye-slash"></span>
+                                      </button>
+                                  </div>--%>
+                        </div>
+            
+
+
+
+                        <span id="errorMsg" style="color: red;"></span>
+
+
+                                      <div id="message">
+                                        <h4>Password must contain the following:</h4>
+                                         <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                         <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                         <p id="number" class="invalid">A <b>number</b></p>
+                                         <p id="special" class="invalid">A <b>special characters(!@#$%^&)</b></p>
+                                         <p id="length" class="invalid">Minimum <b>6 characters</b></p>
+                                        </div>
+
+
+                    </div>
+
+
+               
+                    <div class="modal-footer">
+                        <asp:Label ID="lblUserName" runat="server" Text="Label" Visible="false"></asp:Label>
+                        <asp:Label ID="lblPasswd" runat="server" Text="Label" Visible="false"></asp:Label>
+                        <button type="button" class="btn btn-success" id="btnChange">Change</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+                      
+            </div>
+
+                
+           
+        </div>   
+        </div>
+  </div>
+</div>
+    
+    <!-- Mainly scripts -->
+    <%-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--%>
+    <%--  <script src="../../js/jquery-3.1.1.min.js"></script>--%>
+    <%-- <script src=" https://code.jquery.com/jquery-3.1.1.min.js"></script>--%>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Flot -->
+    <script src="../../js/plugins/flot/jquery.flot.js"></script>
+    <script src="../../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="../../js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="../../js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="../../js/plugins/flot/jquery.flot.pie.js"></script>
+
+    <!-- Peity -->
+    <script src="../../js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="../../js/demo/peity-demo.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="../../js/inspinia.js"></script>
+    <%-- <script src="../../js/plugins/pace/pace.min.js"></script>--%>
+
+    <!-- jQuery UI -->
+    <script src="../../js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="../../js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="../../js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Sparkline demo data  -->
+    <script src="../../js/demo/sparkline-demo.js"></script>
+
+    <!-- ChartJS-->
+    <script src="../../js/plugins/chartJs/Chart.min.js"></script>
+
+    <!-- Toastr -->
+    <script src="../../js/plugins/toastr/toastr.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="../../js/plugins/Select/Select2.js"></script>
+
+    <script>
+
+        //------------------------------HIDE AND SHOW PASSWORD 1--------------------------------------------------------------------         
+        togglePassword1.addEventListener('click', function (e) {
+
+
+            var togglePassword1 = $("#togglePassword1");
+            var txtPassword = $("#txtPassword");
+
+
+            if (txtPassword.attr("type") === "password") {
+                txtPassword.attr("type", "text");
+                togglePassword1.removeClass('far fa-eye-slash');
+                togglePassword1.addClass('far fa-eye');
+            }
+            else if (txtPassword.attr("type") === "text") {
+                txtPassword.attr("type", "password");
+                togglePassword1.removeClass('far fa-eye');
+                togglePassword1.addClass('far fa-eye-slash');
+            }
+
+        });
+
+
+        //------------------------------HIDE AND SHOW PASSWORD 2--------------------------------------------------------------------         
+        togglePassword2.addEventListener('click', function (e) {
+
+
+            var togglePassword2 = $("#togglePassword2");
+            var txtNewPwd = $("#txtNewPwd");
+
+
+            if (txtNewPwd.attr("type") === "password") {
+                txtNewPwd.attr("type", "text");
+                togglePassword2.removeClass('far fa-eye-slash');
+                togglePassword2.addClass('far fa-eye');
+            }
+            else if (txtNewPwd.attr("type") === "text") {
+                txtNewPwd.attr("type", "password");
+                togglePassword2.removeClass('far fa-eye');
+                togglePassword2.addClass('far fa-eye-slash');
+            }
+
+        });
+
+
+        //------------------------------HIDE AND SHOW PASSWORD 3--------------------------------------------------------------------         
+        togglePassword3.addEventListener('click', function (e) {
+
+
+            var togglePassword3 = $("#togglePassword3");
+            var txtConfirmPswd = $("#txtConfirmPswd");
+
+
+            if (txtConfirmPswd.attr("type") === "password") {
+                txtConfirmPswd.attr("type", "text");
+                togglePassword3.removeClass('far fa-eye-slash');
+                togglePassword3.addClass('far fa-eye');
+            }
+            else if (txtConfirmPswd.attr("type") === "text") {
+                txtConfirmPswd.attr("type", "password");
+                togglePassword3.removeClass('far fa-eye');
+                togglePassword3.addClass('far fa-eye-slash');
+            }
+
+        });
+
+
+
+
+        $(document).ready(function () {
+            pageload1();
+            window.onload = function () {
+                var url = document.location.href;
+                var array = url.split("/");
+                for (var i = 0; i < array.length; i++)
+                    if (array[i] == "EmpMgt" || array[i] == "EmployeeMgt" || array[i] == "DepartmentMgt") {
+                        activeMenu('Employee');
+                        break;
+                    }
+                    else if (array[i] == "Admin" || array[i] == "SystemConfiguration" || array[i] == "Reports" || array[i] == "UserMgt") {
+                        activeMenu('Admin');
+                    }
+                    else if (array[i] == "Payroll") {
+                        activeMenu('Payroll');
+                    }
+                    else if (array[i] == "VacancyMgt") {
+                        activeMenu('Vacancy');
+                    }
+                    else if (array[i] == "LeaveMgt" || array[i] == "LeaveApproval") {
+                        activeMenu('Leave');
+                    }
+                    else if (array[i] == "PersonalFileMgt") {
+                        activeMenu('Document');
+                    }
+                    else if (array[i] == "TimeNAttendance") {
+                        activeMenu('TimeAttendance');
+                    }
+                    else if (array[i] == "TrainingDevelopMGT") {
+                        activeMenu('Traning');
+                    }
+                    else if (array[i] == "RecuritmentMgt") {
+                        activeMenu('Recuritment');
+                    }
+                    else if (array[i] == "PerformanceMgt") {
+                        activeMenu('Performance');
+                    }
+                return false;
+            }
+
+            function activeMenu(menuName) {
+                $('#a' + menuName).attr("aria-expanded", "true");
+                $('#' + menuName + 'Mgt').addClass("active");
+                $('#ul' + menuName).addClass("in");
+                $('#ul' + menuName).attr("aria-expanded", "true");
+            }
+
+
+            //pageload();
+
+            setTimeout(function () {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                //toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
+
+            }, 1300);
+
+            $("#linkUser").click(function () {
+                $("#userDiv").toggleClass("show");
+            });
+
+
+            var data1 = [
+                [0, 4], [1, 8], [2, 5], [3, 10], [4, 4], [5, 16], [6, 5], [7, 11], [8, 6], [9, 11], [10, 30], [11, 10], [12, 13], [13, 4], [14, 3], [15, 3], [16, 6]
+            ];
+            var data2 = [
+                [0, 1], [1, 0], [2, 2], [3, 0], [4, 1], [5, 3], [6, 1], [7, 5], [8, 2], [9, 3], [10, 2], [11, 1], [12, 0], [13, 2], [14, 8], [15, 0], [16, 0]
+            ];
+            $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
+                data1, data2
+            ],
+                {
+                    series: {
+                        lines: {
+                            show: false,
+                            fill: true
+                        },
+                        splines: {
+                            show: true,
+                            tension: 0.4,
+                            lineWidth: 1,
+                            fill: 0.4
+                        },
+                        points: {
+                            radius: 0,
+                            show: true
+                        },
+                        shadowSize: 2
+                    },
+                    grid: {
+                        hoverable: true,
+                        clickable: true,
+                        tickColor: "#d5d5d5",
+                        borderWidth: 1,
+                        color: '#d5d5d5'
+                    },
+                    colors: ["#1ab394", "#1C84C6"],
+                    xaxis: {
+                    },
+                    yaxis: {
+                        ticks: 4
+                    },
+                    tooltip: false
+                }
+            );
+
+
+        });
+        function pageload1() {
+            $("#btnChange").prop('disabled', true);
+            $(document).ready(function () {
+
+            });
+
+            $("#<%=txtPassword.ClientID%>").on("keyup", function () {
+                 compare_password();
+                 checkTextValidity($("#<%=txtPassword.ClientID%>"), "Current Password required and cannot be a empty.", "REQ");
+
+            });
+
+             $("#<%=txtConfirmPswd.ClientID%>").on("keyup", function () {
+                 compare_password();
+                 checkTextValidity($("#<%=txtConfirmPswd.ClientID%>"), "Confirm Password required and cannot be a empty.", "REQ");
+
+            });
+             $("#<%=txtNewPwd.ClientID%>").on("keyup", function () {
+                 compare_password();
+                 checkTextValidity($("#<%=txtNewPwd.ClientID%>"), "New Password required and cannot be a empty.", "REQ");
+
+            });
+
+
+             $("#btnChange").click(function () {
+                 compare_password();
+                 var userName = $("#<%=lblUserName.ClientID%>").val();
+             var pswd = $("#<%=lblPasswd.ClientID%>").val();
+
+             var oldpswd = $("#<%=txtPassword.ClientID%>").val();
+             var newpswd = $("#<%=txtNewPwd.ClientID%>").val();
+             var confirmPswd = $("#<%=txtConfirmPswd.ClientID%>").val();
+             $.ajax({
+                 type: "POST",
+                 url: "HRMHome.aspx/ResetPassword",
+                 data: "{'Oldpswd': '" + oldpswd + "', 'Newpswd': '" + newpswd + "', 'ConfirmPswd': '" + confirmPswd + "', 'username': '" + userName + "', 'password': '" + pswd + "'}",
+                 dataType: "json",
+                 contentType: "application/json; charset=utf-8",
+                 success: function (data) {
+
+                     //var returnMsg = data.d;
+                     var erHdg = data.d[0];
+                     var erMsg = data.d[1];
+
+                     if (erHdg == "OK") {
+                         $("#errorMsg").append('<div class="alert alert-success" style ="margin-bottom: 0"><strong>Success! </strong>Successfully reset password.</div>');
+                         $("#errorMsg").delay(3000).fadeOut(2000);
+                         $("#<%=txtPassword.ClientID%>").val("");
+                            $("#<%=txtNewPwd.ClientID%>").val("");
+                            $("#<%=txtConfirmPswd.ClientID%>").val("");
+                         //   window.location.assign("~/HRMLogin.aspx");
+                         
+                            alert("successfully Change The Password!");
+
+                            window.location.href = "HRMLogin.aspx";
+                        }
+                        else
+                        {
+                            $("#errorMsg").append('<div class="alert alert-danger" style ="margin-bottom: 0"><strong>Error! </strong>' + erMsg + '.</div>');
+                            $("#errorMsg").delay(3000).fadeOut(2000);
+                        }
+                    },
+                    error: function (a)
+                    { alert(a.responseText); }
+                });
+                $('#modelReset').modal('hide');
+            });
+
+
+
+            function compare_password() {
+                var isValid = false;
+
+
+
+                if ($("#<%=txtConfirmPswd.ClientID%>").val() != '' && $("#<%=txtNewPwd.ClientID%>").val() != '') {
+                    $("#<%=txtConfirmPswd.ClientID%>").parent().parent().removeClass('has-error');
+                    $("#<%=txtPassword.ClientID%>").parent().parent().removeClass('has-error');
+                    $("#<%=txtNewPwd.ClientID%>").parent().parent().removeClass('has-error');
+                    $("#<%=txtConfirmPswd.ClientID%>").parent().find("small").remove();
+                   
+                   
+
+                    if ($("#<%=txtNewPwd.ClientID%>").val() == $("#<%=txtConfirmPswd.ClientID%>").val())
+                        isValid = true;
+
+                    if (isValid) {
+                        $("#<%=txtConfirmPswd.ClientID%>").parent().parent().addClass('has-success');
+                        $("#btnChange").prop('disabled', false);
+                       
+                    }
+                    else {
+                        $("#<%=txtConfirmPswd.ClientID%>").parent().parent().addClass('has-error');
+                        $("#<%=txtConfirmPswd.ClientID%>").parent().append('<small class="help-block">Passwords do not match.</small>');
+                        $("#btnChange").prop('disabled', true);
+                    }
+                }
+
+
+
+                return isValid;
+            }
+
+        }
+
+
+
+
+
+
+        var myInput = document.getElementById("txtNewPwd");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        var special = document.getElementById("special");
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function () {
+            document.getElementById("message").style.display = "block";
+
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function () {
+            document.getElementById("message").style.display = "none";
+
+        }
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+
+            document.getElementById("txtConfirmPswd").disabled = true;
+
+
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+
+            }
+            else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+
+            }
+
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            }
+            else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+
+
+            }
+            else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+
+            }
+
+            var specialcharacters = /[!@#$^&*(),.?":{}%|<>]/g;
+            if (myInput.value.match(specialcharacters)) {
+
+                special.classList.remove("invalid");
+                special.classList.add("valid");
+
+
+            }
+            else {
+                special.classList.remove("valid");
+                special.classList.add("invalid");
+
+            }
+
+
+            if (myInput.value.length >= 6) {
+
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+
+
+            }
+            else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+
+            }
+
+
+
+
+
+            if ((myInput.value.match(numbers)) && (myInput.value.match(lowerCaseLetters)) && (myInput.value.match(upperCaseLetters)) && (myInput.value.match(specialcharacters)) && (myInput.value.length >= 6)) {
+                document.getElementById("txtConfirmPswd").disabled = false;
+
+            }
+
+
+
+        }
+
+
+        var valueEquel = document.getElementById("txtConfirmPswd");
+
+        valueEquel.onkeyup = function () {
+
+            document.getElementById("btnChangePwd").disabled = true;
+
+            if (document.getElementById("txtNewPwd").value == document.getElementById("txtConfirmPswd").value) {
+
+                document.getElementById("btnChange").disabled = false;
+
+            }
+
+
+
+        }
+
+        //function btnImgClick() {
+        //    var txtUPwd = $("#txtPassword");
+        //    var spnPwdVisible = $("#spnPwdVisible");
+
+        //    if (txtUPwd.attr("type") === "password") {
+        //        txtUPwd.attr("type", "text");
+        //        spnPwdVisible.removeClass('far fa-eye-slash');
+        //        spnPwdVisible.addClass('far fa-eye');
+        //    }
+        //    else if (txtUPwd.attr("type") === "text") {
+        //        txtUPwd.attr("type", "password");
+        //        spnPwdVisible.removeClass('far fa-eye');
+        //        spnPwdVisible.addClass('far fa-eye-slash');
+        //    }
+        //}
+
+        //function btnImgClick2() {
+        //    var txtUPwd = $("#txtNewPwd");
+        //    var spnPwdVisible = $("#spnPwdVisible2");
+
+        //    if (txtUPwd.attr("type") === "password") {
+        //        txtUPwd.attr("type", "text");
+        //        spnPwdVisible.removeClass('far fa-eye-slash');
+        //        spnPwdVisible.addClass('far fa-eye');
+        //    }
+        //    else if (txtUPwd.attr("type") === "text") {
+        //        txtUPwd.attr("type", "password");
+        //        spnPwdVisible.removeClass('far fa-eye');
+        //        spnPwdVisible.addClass('far fa-eye-slash');
+        //    }
+        //}
+
+        //function btnImgClick3() {
+        //    var txtUPwd = $("#txtConfirmPswd");
+        //    var spnPwdVisible = $("#spnPwdVisible3");
+
+        //    if (txtUPwd.attr("type") === "password") {
+        //        txtUPwd.attr("type", "text");
+        //        spnPwdVisible.removeClass('far fa-eye-slash');
+        //        spnPwdVisible.addClass('far fa-eye');
+        //    }
+        //    else if (txtUPwd.attr("type") === "text") {
+        //        txtUPwd.attr("type", "password");
+        //        spnPwdVisible.removeClass('far fa-eye');
+        //        spnPwdVisible.addClass('far fa-eye-slash');
+        //    }
+        //}
+
+    </script>
+    
+</body>
+</html>
